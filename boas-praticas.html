@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boas Práticas - Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tecnologias.html">Tecnologias</a>
+      <a href="boas-praticas.html">Boas Práticas</a>
+      <a href="fluxo.html">Fluxo</a>
+      <a href="quiz.html">Quiz</a>
+      <button onclick="toggleTheme()">🌗</button>
+    </nav>
+  </header>
+  <main>
+    <h1>Boas Práticas</h1>
+    <p>Dicas essenciais para um desenvolvimento web profissional.</p>
+    <section id="accordion">
+      <h2>Semântica & Acessibilidade</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel1">Ver detalhes</button>
+      <div class="accordion-panel" id="panel1" hidden>
+        <ul>
+          <li>Utilize tags semânticas: <code>&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</code></li>
+          <li>Imagens com <code>alt</code> descritivo</li>
+          <li>Labels conectadas a inputs</li>
+          <li>Contraste adequado entre texto e fundo</li>
+          <li>Ordem de tabulação lógica</li>
+        </ul>
+        <pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" /&gt;</code></pre>
+      </div>
+      <h2>Responsividade</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel2">Ver detalhes</button>
+      <div class="accordion-panel" id="panel2" hidden>
+        <ul>
+          <li>Mobile-first: comece o layout pelo celular</li>
+          <li>Use Flexbox ou Grid para organizar</li>
+          <li>Unidades relativas: <code>em</code>, <code>rem</code>, <code>%</code></li>
+          <li>Evite quebra horizontal</li>
+          <li>Imagens responsivas</li>
+        </ul>
+        <pre><code>.container { display: flex; flex-wrap: wrap; }</code></pre>
+      </div>
+      <h2>Organização de CSS</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel3">Ver detalhes</button>
+      <div class="accordion-panel" id="panel3" hidden>
+        <ul>
+          <li>Use convenção BEM ou similar</li>
+          <li>Comente trechos importantes</li>
+          <li>Utilize variáveis CSS</li>
+          <li>Separe estilos em arquivos</li>
+          <li>Evite duplicidade de regras</li>
+        </ul>
+        <pre><code>:root { --color-primary: #2563EB; }</code></pre>
+      </div>
+      <h2>Performance leve</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel4">Ver detalhes</button>
+      <div class="accordion-panel" id="panel4" hidden>
+        <ul>
+          <li>Otimize imagens (formato, tamanho)</li>
+          <li>Use lazy loading</li>
+          <li>Evite JS desnecessário</li>
+          <li>Minimize CSS e JS</li>
+          <li>Prefira fontes locais ou otimizadas</li>
+        </ul>
+        <pre><code>&lt;img src="imagem.jpg" loading="lazy" alt="Descrição" /&gt;</code></pre>
+      </div>
+      <h2>Versionamento (Git)</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel5">Ver detalhes</button>
+      <div class="accordion-panel" id="panel5" hidden>
+        <ul>
+          <li>Commits pequenos e frequentes</li>
+          <li>Mensagens claras e objetivas</li>
+          <li>Utilize branches para novas features</li>
+          <li>Faça pull requests para revisão</li>
+          <li>Documente no README</li>
+        </ul>
+        <pre><code>git commit -m "feat: adiciona accordion JS"</code></pre>
+      </div>
+      <h2>Boas práticas de JS</h2>
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="panel6">Ver detalhes</button>
+      <div class="accordion-panel" id="panel6" hidden>
+        <ul>
+          <li>Funções puras sempre que possível</li>
+          <li>Nomes claros e descritivos</li>
+          <li>Trate erros de interação</li>
+          <li>Evite variáveis globais</li>
+          <li>Comente lógicas complexas</li>
+        </ul>
+        <pre><code>function soma(a, b) { return a + b; }</code></pre>
+      </div>
+    </section>
+    <section id="checklist">
+      <h2>Checklist Pessoal</h2>
+      <form>
+        <label><input type="checkbox" name="semantica"> Semântica & Acessibilidade</label><br>
+        <label><input type="checkbox" name="responsividade"> Responsividade</label><br>
+        <label><input type="checkbox" name="css"> Organização de CSS</label><br>
+        <label><input type="checkbox" name="performance"> Performance leve</label><br>
+        <label><input type="checkbox" name="git"> Versionamento (Git)</label><br>
+        <label><input type="checkbox" name="js"> Boas práticas de JS</label><br>
+      </form>
+      <progress id="progress" value="0" max="6"></progress>
+      <span id="progress-text">0% completo</span>
+    </section>
+  </main>
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="tecnologias.html">Tecnologias</a> |
+      <a href="fluxo.html">Fluxo</a> |
+      <a href="quiz.html">Quiz</a>
+    </nav>
+    <p>Créditos: Eloá Morente &copy; 2025</p>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

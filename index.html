@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <span>Guia Profissional de Desenvolvimento Web</span>
+      <a href="index.html">Home</a>
+      <a href="tecnologias.html">Tecnologias</a>
+      <a href="boas-praticas.html">Boas Práticas</a>
+      <a href="fluxo.html">Fluxo</a>
+      <a href="quiz.html">Quiz</a>
+      <button onclick="toggleTheme()">🌗</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Bem-vindo ao Guia Profissional de Desenvolvimento Web</h1>
+      <p>Seu ponto de partida para aprender e se aprofundar nas principais práticas e tecnologias do desenvolvimento web.</p>
+      <a href="tecnologias.html" class="card">Começar</a>
+    </section>
+    <section>
+      <h2>O que é HTML, CSS, JS?</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div class="card">
+          <h3>HTML</h3>
+          <p>Estrutura o conteúdo da página web.</p>
+          <pre>&lt;h1&gt;Título&lt;/h1&gt;</pre>
+          <small>Use para estruturar textos, imagens e links.</small>
+        </div>
+        <div class="card">
+          <h3>CSS</h3>
+          <p>Define o estilo visual da página.</p>
+          <pre>h1 { color: blue; }</pre>
+          <small>Use para cores, fontes e layout.</small>
+        </div>
+        <div class="card">
+          <h3>JS</h3>
+          <p>Adiciona interatividade e lógica.</p>
+          <pre>document.querySelector('h1').onclick = ...</pre>
+          <small>Use para animações, validações e dinâmicas.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <nav>
+      <a href="tecnologias.html">Tecnologias</a> |
+      <a href="boas-praticas.html">Boas Práticas</a> |
+      <a href="fluxo.html">Fluxo</a> |
+      <a href="quiz.html">Quiz</a>
+    </nav>
+    <p>Créditos: Eloá Morente &copy; 2025</p>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

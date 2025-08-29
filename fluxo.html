@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluxo - Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tecnologias.html">Tecnologias</a>
+      <a href="boas-praticas.html">Boas Práticas</a>
+      <a href="fluxo.html">Fluxo</a>
+      <a href="quiz.html">Quiz</a>
+      <button onclick="toggleTheme()">🌗</button>
+    </nav>
+  </header>
+  <main>
+    <h1>Fluxograma do Projeto Web</h1>
+    <p>Visualize as etapas essenciais de um projeto web.</p>
+    <section id="fluxograma">
+      <svg width="100%" height="120" viewBox="0 0 900 120" aria-label="Fluxograma do projeto">
+        <g font-family="sans-serif" font-size="14">
+          <rect x="10" y="40" width="90" height="40" fill="#2563EB" rx="8"/>
+          <text x="55" y="65" fill="#fff" text-anchor="middle">Descoberta</text>
+          <rect x="120" y="40" width="90" height="40" fill="#10B981" rx="8"/>
+          <text x="165" y="65" fill="#fff" text-anchor="middle">Requisitos</text>
+          <rect x="230" y="40" width="90" height="40" fill="#2563EB" rx="8"/>
+          <text x="275" y="65" fill="#fff" text-anchor="middle">Protótipo</text>
+          <rect x="340" y="40" width="90" height="40" fill="#10B981" rx="8"/>
+          <text x="385" y="65" fill="#fff" text-anchor="middle">Design</text>
+          <rect x="450" y="40" width="90" height="40" fill="#2563EB" rx="8"/>
+          <text x="495" y="65" fill="#fff" text-anchor="middle">Implementação</text>
+          <rect x="560" y="40" width="90" height="40" fill="#10B981" rx="8"/>
+          <text x="605" y="65" fill="#fff" text-anchor="middle">Testes</text>
+          <rect x="670" y="40" width="90" height="40" fill="#2563EB" rx="8"/>
+          <text x="715" y="65" fill="#fff" text-anchor="middle">Deploy</text>
+          <rect x="780" y="40" width="90" height="40" fill="#10B981" rx="8"/>
+          <text x="825" y="65" fill="#fff" text-anchor="middle">Publicação</text>
+          <rect x="890" y="40" width="90" height="40" fill="#2563EB" rx="8"/>
+          <text x="935" y="65" fill="#fff" text-anchor="middle">Monitoramento</text>
+          <!-- Setas -->
+          <line x1="100" y1="60" x2="120" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="210" y1="60" x2="230" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="320" y1="60" x2="340" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="430" y1="60" x2="450" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="540" y1="60" x2="560" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="650" y1="60" x2="670" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="760" y1="60" x2="780" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="870" y1="60" x2="890" y2="60" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+        </g>
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L10,5 L0,10 Z" fill="#111827" />
+          </marker>
+        </defs>
+      </svg>
+      <p>Clique em cada etapa para ver detalhes.</p>
+    </section>
+    <section id="timeline" style="margin-top:2rem;">
+      <h2>Linha do Tempo do Projeto</h2>
+      <div style="display:flex; gap:1rem; overflow-x:auto;">
+        <div class="card">Descoberta</div>
+        <div class="card">Requisitos</div>
+        <div class="card">Protótipo</div>
+        <div class="card">Design</div>
+        <div class="card">Implementação</div>
+        <div class="card">Testes</div>
+        <div class="card">Deploy</div>
+        <div class="card">Publicação</div>
+        <div class="card">Monitoramento</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="tecnologias.html">Tecnologias</a> |
+      <a href="boas-praticas.html">Boas Práticas</a> |
+      <a href="quiz.html">Quiz</a>
+    </nav>
+    <p>Créditos: Eloá Morente &copy; 2025</p>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
