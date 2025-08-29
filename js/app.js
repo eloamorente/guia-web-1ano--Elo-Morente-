@@ -166,6 +166,55 @@ function hideTooltip() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  // ACCORDION e CHECKLIST (Boas Práticas)
+  if (document.getElementById('accordion')) {
+    const toggles = document.querySelectorAll('.accordion-toggle');
+    toggles.forEach(btn => {
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (!expanded) {
+          panel.hidden = false;
+          panel.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          panel.classList.remove('open');
+          panel.style.maxHeight = null;
+          setTimeout(() => panel.hidden = true, 320);
+        }
+      });
+      // teclado
+      btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') btn.click(); });
+    });
+  }
+
+  if (document.getElementById('checklist')) {
+    const form = document.querySelector('#checklist form');
+    const progress = document.getElementById('progress');
+    const progressText = document.getElementById('progress-text');
+    const keys = Array.from(form.querySelectorAll('input[type="checkbox"]')).map(i => i.name);
+    // carregar estado
+    const saved = JSON.parse(localStorage.getItem('bp-checklist') || '{}');
+    keys.forEach(name => {
+      const el = form.querySelector(`input[name="${name}"]`);
+      if (saved[name]) el.checked = true;
+      el.addEventListener('change', updateProgress);
+    });
+    function updateProgress() {
+      const values = keys.map(name => form.querySelector(`input[name="${name}"]`).checked);
+      const done = values.filter(Boolean).length;
+      progress.value = done;
+      progress.max = keys.length;
+      progressText.textContent = Math.round((done / keys.length) * 100) + '% completo';
+      // salvar
+      const obj = {};
+      keys.forEach(name => obj[name] = form.querySelector(`input[name="${name}"]`).checked);
+      localStorage.setItem('bp-checklist', JSON.stringify(obj));
+    }
+    updateProgress();
+  }
+
   // QUIZ
   if (document.getElementById('quiz')) {
     const quizData = [
@@ -383,3 +432,22 @@ function toggleTheme() {
   const theme = localStorage.getItem('theme');
   if (theme === 'dark') document.body.classList.add('dark');
 })();
+
+// Menu toggle e theme button - comportamento acessível
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelectorAll('.nav-toggle');
+  navToggle.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const links = document.getElementById('nav-links');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('show');
+    });
+  });
+  const themeBtns = document.querySelectorAll('#theme-toggle');
+  themeBtns.forEach(tb => tb.addEventListener('click', function() {
+    const pressed = this.getAttribute('aria-pressed') === 'true';
+    this.setAttribute('aria-pressed', String(!pressed));
+    toggleTheme();
+  }));
+});

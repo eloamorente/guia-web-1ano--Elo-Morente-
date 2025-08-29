@@ -8,18 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
   <header>
-    <nav>
-      <span>Guia Profissional de Desenvolvimento Web</span>
-      <a href="index.html">Home</a>
-      <a href="tecnologias.html">Tecnologias</a>
-      <a href="boas-praticas.html">Boas Práticas</a>
-      <a href="fluxo.html">Fluxo</a>
-      <a href="quiz.html">Quiz</a>
-      <button onclick="toggleTheme()">🌗</button>
+    <nav class="site-nav">
+      <div class="nav-brand">Guia Profissional de Desenvolvimento Web</div>
+      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      <div id="nav-links" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="tecnologias.html">Tecnologias</a>
+        <a href="boas-praticas.html">Boas Práticas</a>
+        <a href="fluxo.html">Fluxo</a>
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <button id="theme-toggle" aria-pressed="false" aria-label="Alternar tema">🌗</button>
     </nav>
   </header>
-  <main>
+  <main id="main">
     <section class="hero">
       <h1>Bem-vindo ao Guia Profissional de Desenvolvimento Web</h1>
       <p>Seu ponto de partida para aprender e se aprofundar nas principais práticas e tecnologias do desenvolvimento web.</p>

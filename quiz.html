@@ -7,17 +7,22 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
   <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tecnologias.html">Tecnologias</a>
-      <a href="boas-praticas.html">Boas Práticas</a>
-      <a href="fluxo.html">Fluxo</a>
-      <a href="quiz.html">Quiz</a>
-      <button onclick="toggleTheme()">🌗</button>
+    <nav class="site-nav">
+      <div class="nav-brand">Guia Profissional de Desenvolvimento Web</div>
+      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      <div id="nav-links" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="tecnologias.html">Tecnologias</a>
+        <a href="boas-praticas.html">Boas Práticas</a>
+        <a href="fluxo.html">Fluxo</a>
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <button id="theme-toggle" aria-pressed="false" aria-label="Alternar tema">🌗</button>
     </nav>
   </header>
-  <main>
+  <main id="main">
     <h1>Quiz</h1>
     <p>Teste seus conhecimentos sobre desenvolvimento web!</p>
     <!-- Quiz será implementado em JS -->
