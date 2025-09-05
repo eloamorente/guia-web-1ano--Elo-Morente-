@@ -19,14 +19,17 @@
         <a href="fluxo.html">Fluxo</a>
         <a href="quiz.html">Quiz</a>
       </div>
-      <button id="theme-toggle" aria-pressed="false" aria-label="Alternar tema">🌗</button>
+      
     </nav>
   </header>
   <main id="main">
     <h1>Tecnologias</h1>
     <p>Panorama do ecossistema de desenvolvimento web.</p>
     <section>
-      <input type="text" id="tech-search" placeholder="Buscar tecnologia..." aria-label="Buscar tecnologia">
+      <div style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
+        <input type="text" id="tech-search" placeholder="Buscar tecnologia..." aria-label="Buscar tecnologia">
+        <button id="export-csv" class="card" style="padding:.4rem .6rem; border-radius:8px;">Exportar CSV</button>
+      </div>
       <div id="tech-filters">
         <button data-category="all" aria-controls="tech-cards" aria-expanded="true">Todas</button>
         <button data-category="frontend" aria-controls="tech-cards" aria-expanded="false">Front-end</button>

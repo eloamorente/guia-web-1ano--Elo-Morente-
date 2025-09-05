@@ -444,10 +444,72 @@ document.addEventListener('DOMContentLoaded', function() {
       links.classList.toggle('show');
     });
   });
-  const themeBtns = document.querySelectorAll('#theme-toggle');
-  themeBtns.forEach(tb => tb.addEventListener('click', function() {
-    const pressed = this.getAttribute('aria-pressed') === 'true';
-    this.setAttribute('aria-pressed', String(!pressed));
-    toggleTheme();
-  }));
+  // não há mais botão de alternar tema (persistência mantida)
+});
+
+// --- Enhancements: Theme toggle UI, CSV export and keyboard shortcuts ---
+document.addEventListener('DOMContentLoaded', function() {
+  // Theme toggle button (insere comportamento se existir)
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    // reflect saved state
+    const saved = localStorage.getItem('theme') || (document.body.classList.contains('dark') ? 'dark' : 'light');
+    themeBtn.setAttribute('aria-pressed', saved === 'dark' ? 'true' : 'false');
+    themeBtn.addEventListener('click', function() {
+      toggleTheme();
+      themeBtn.setAttribute('aria-pressed', document.body.classList.contains('dark') ? 'true' : 'false');
+      themeBtn.focus();
+    });
+  }
+
+  // CSV export for tecnologias (name, category, pros, contras) of currently rendered cards
+  const exportBtn = document.getElementById('export-csv');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function() {
+      const cards = Array.from(document.querySelectorAll('#tech-cards .card'));
+      if (!cards.length) {
+        alert('Nenhum card para exportar. Aplique um filtro ou busca.');
+        return;
+      }
+      const rows = [['Nome','Categoria','Prós','Contras']];
+      cards.forEach(c => {
+        const nome = c.dataset.nome || '';
+        const categoria = c.dataset.categoria || '';
+        const pros = c.querySelector('ul li strong') ? c.querySelector('ul li').textContent.replace(/^Prós:\s*/,'') : '';
+        const contras = (() => {
+          const lis = c.querySelectorAll('ul li');
+          return lis[1] ? lis[1].textContent.replace(/^Contras:\s*/,'') : '';
+        })();
+        rows.push([nome, categoria, pros, contras]);
+      });
+      const csvContent = rows.map(r => r.map(cell => '"' + String(cell).replace(/"/g,'""') + '"').join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'tecnologias_filtradas.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  // Keyboard shortcuts: '/' focus search, Alt+M focus menu, Home scroll to top
+  document.addEventListener('keydown', function(e) {
+    // '/' focus search, avoid when typing in inputs
+    if (e.key === '/' && !(document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA'))) {
+      const s = document.getElementById('tech-search');
+      if (s) { e.preventDefault(); s.focus(); s.select(); }
+    }
+    // Alt+M focus menu
+    if (e.altKey && (e.key === 'm' || e.key === 'M')) {
+      const firstLink = document.querySelector('.nav-links a');
+      if (firstLink) { e.preventDefault(); firstLink.focus(); }
+    }
+    // Home to top
+    if (e.key === 'Home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
 });
